@@ -31,7 +31,15 @@ $(function() {
         var g = svg.selectAll(".arc")
             .data(pie(d3.keys(totals)))
             .enter().append("g")
-            .attr("class", "arc");
+            .attr("class", "arc")
+            .on("mouseover", function(d) {
+                d3.select(this).select("text").style("font-weight", "bold")
+                d3.select(this).select("text").style("font-weight", "1.25em")
+            })
+            .on("mouseout", function(d) {
+                d3.select(this).select("text").style("font-weight", "normal")
+                d3.select(this).select("text").style("font-weight", "1em")
+            });
 
         // fill in the color
         g.append("path")
@@ -46,6 +54,7 @@ $(function() {
             .attr("dy", ".35em")
             .style("text-anchor", "middle")
             .text(function(d) { return d.data; });
+        //put the labels outside the pie ( in a new arc/circle)
 
         var pos = d3.svg.arc().innerRadius(radius + 20).outerRadius(radius + 20);
         g.append("text")

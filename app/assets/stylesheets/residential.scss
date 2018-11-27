@@ -9,3 +9,9 @@
 .arc path {
     stroke: #fff;
 }
+
+g.arc {
+    &:hover {
+        opacity: .55;
+    }
+}
