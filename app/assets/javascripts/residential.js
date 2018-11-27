@@ -1,4 +1,4 @@
-$(function() {
+function makePie() {
     // From: http://bl.ocks.org/mbostock/3887235
     // Set the dimensions
     var width = 960,
@@ -65,4 +65,4 @@ $(function() {
             .style("text-anchor", "middle")
             .text(function(d) { return d.data; });
     });
-});
+}
