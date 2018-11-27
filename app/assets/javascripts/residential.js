@@ -46,5 +46,14 @@ $(function() {
             .attr("dy", ".35em")
             .style("text-anchor", "middle")
             .text(function(d) { return d.data; });
+
+        var pos = d3.svg.arc().innerRadius(radius + 20).outerRadius(radius + 20);
+        g.append("text")
+            .attr("transform", function(d) {
+                return "translate(" + pos.centroid(d) + ")";
+            })
+            .attr("dy", ".35em")
+            .style("text-anchor", "middle")
+            .text(function(d) { return d.data; });
     });
 });
